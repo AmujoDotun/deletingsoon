@@ -1,7 +1,6 @@
 <?php 
-include '../core/server.php';
-
-
+include ('../core/server.php');
+include ('../core/header.php');
 ?>
 <!DOCTYPE html>
 <html>

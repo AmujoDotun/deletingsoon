@@ -10,6 +10,7 @@ $username = "";
 $email    = "";
 $hallname ="";
 $hallcapacity ="";
+$department = "";
 $errors = array(); 
 
 // connect to the database
@@ -240,7 +241,7 @@ if (isset($_POST['reg_dept'])) {
   // Finally, register hall if there are no errors in the form
   if (count($errors) == 0) {
 
-      $query = "INSERT INTO department (department) 
+      $query = "INSERT INTO departments (department) 
                 VALUES('$department')";
       mysqli_query($db, $query);
       $_SESSION['department'] = $department;
