@@ -1,4 +1,8 @@
-<?php include('../core/server.php') ?>
+<?php 
+
+include('../core/server.php')
+include('../core/header.php');
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -2,7 +2,6 @@
 include '../core/server.php';
 
 
-
 ?>
 <!DOCTYPE html>
 <html>

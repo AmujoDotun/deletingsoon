@@ -54,7 +54,7 @@ if (isset($_POST['reg_admin'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO students (username, email, password) 
+  	$query = "INSERT INTO admins (username, email, password) 
   			  VALUES('$username', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
@@ -79,7 +79,7 @@ if (isset($_POST['login_admin'])) {
 
   if (count($errors) == 0) {
   	$password = md5($password);
-  	$query = "SELECT * FROM students WHERE username='$username' AND password='$password'";
+  	$query = "SELECT * FROM admins WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['username'] = $username;
@@ -209,7 +209,7 @@ if (isset($_POST['reg_hall'])) {
   	mysqli_query($db, $query);
   	$_SESSION['hallname'] = $hallname;
   	$_SESSION['success'] = "You have successfully register hall";
-  	header('location: ../students/index.php');
+  	header('location: ../Admin/index.php');
   }
 }
 
@@ -245,10 +245,9 @@ if (isset($_POST['reg_dept'])) {
       mysqli_query($db, $query);
       $_SESSION['department'] = $department;
       $_SESSION['success'] = "You have successfully register department name";
-      header('location: ../students/index.php');
+      header('location: ../Admin/index.php');
   }
 }
-
 
 
 ?>
