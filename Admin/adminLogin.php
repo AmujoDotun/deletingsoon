@@ -24,7 +24,7 @@
   		<button type="submit" class="btn" name="login_admin">Login</button>
   	</div>
   	<p>
-  		Not yet a member? <a href="registration.php">Sign up</a>
+  		Not yet a member? <a href="adminReg.php">Sign up</a>
   	</p>
   </form>
 </body>
