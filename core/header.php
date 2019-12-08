@@ -29,8 +29,14 @@
       <li class="nav-item">
         <a class="nav-link" href="department.php">Seat Allocation</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../students/seatno.php">Seat</a>
+      </li>
       <li class="nav-item active">
-        <a class="nav-link" href="students/login.php">Student<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../students/login.php">Add Student<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../students/profile.php">profile<span class="sr-only">(current)</span></a>
       </li>
      
     </ul>
