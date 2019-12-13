@@ -33,10 +33,13 @@
         <a class="nav-link" href="../students/seatno.php">Seat</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="../students/login.php">Add Student<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../students/login.php">Add Student</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="../students/profile.php">profile<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../students/profile.php">profile</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="schedule.php">Schedule</a>
       </li>
      
     </ul>
