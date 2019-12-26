@@ -11,6 +11,12 @@ $email    = "";
 $hallname ="";
 $hallcapacity ="";
 $department = "";
+$classroom ="";
+$course = "";
+$examdate = "";
+$starttime = "";
+$endtime = "";
+$levels = "";
 $errors = array(); 
 
 // connect to the database
@@ -249,6 +255,93 @@ if (isset($_POST['reg_dept'])) {
       header('location: ../Admin/index.php');
   }
 }
+
+
+
+
+
+// REGISTER SEAT
+
+// REGISTRATION OF HALL
+if (isset($_POST['reg_seat'])) {
+  // receive all input values from the form
+  $levels = mysqli_real_escape_string($db, $_POST['levels']);
+  $department = mysqli_real_escape_string($db, $_POST['department']);
+  $enrollnumber = mysqli_real_escape_string($db, $_POST['enrollnumber']);
+  $classroom = mysqli_real_escape_string($db, $_POST['classroom']);
+  $course = mysqli_real_escape_string($db, $_POST['course']);
+  $examdate = mysqli_real_escape_string($db, $_POST['examdate']);
+  $starttime = mysqli_real_escape_string($db, $_POST['starttime']);
+  $endtime = mysqli_real_escape_string($db, $_POST['endtime']);
+
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($levels)) { array_push($errors, "Level is required"); }
+  if (empty($department)) { array_push($errors, "Department is required"); }
+  if (empty($enrollnumber)) { array_push($errors, "Enrollnumber is required"); }
+  if (empty($classroom)) { array_push($errors, "Classroom is required"); }
+  if (empty($course)) { array_push($errors, "Course is required"); }
+  if (empty($examdate)) { array_push($errors, "Examdate is required"); }
+  if (empty($starttime)) { array_push($errors, "Start Time is required"); }
+  if (empty($endtime)) { array_push($errors, "EndTime is required"); }
+
+  // first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $user_check_query = "SELECT * FROM trisub WHERE levels='$levels' OR department='$department' LIMIT 1";
+  $result = mysqli_query($db, $user_check_query);
+  $user = mysqli_fetch_assoc($result);
+  
+  
+
+  // Finally, register hall if there are no errors in the form
+  if (count($errors) == 0) {
+
+  	$query = "INSERT INTO trisub (levels, department, enrollnumber, classroom, course, examdate, starttime, endtime) 
+        VALUES('$levels', '$department', '$enrollnumber', '$classroom', '$course', '$examdate', '$starttime', '$endtime')";
+  	mysqli_query($db, $query);
+  	$_SESSION['levels'] = $levels;
+  	$_SESSION['success'] = "You have successfully register hall";
+  	header('location: index.php');
+  }
+}
+
+
+// if (isset($_POST['reg_seat'])) {
+//   // receive all input values from the form
+//   $levels = mysqli_real_escape_string($db, $_POST['levels']);
+//   $department = mysqli_real_escape_string($db, $_POST['department']);
+//   $enrollnumber = mysqli_real_escape_string($db, $_POST['enrollnumber']);
+//   $classroom = mysqli_real_escape_string($db, $_POST['classroom']);
+//   $course = mysqli_real_escape_string($db, $_POST['course']);
+//   $examdate = mysqli_real_escape_string($db, $_POST['examdate']);
+//   $starttime = mysqli_real_escape_string($db, $_POST['starttime']);
+//   $endtime = mysqli_real_escape_string($db, $_POST['endtime']);
+
+//   // form validation: ensure that the form is correctly filled ...
+//   // by adding (array_push()) corresponding error unto $errors array
+  // if (empty($levels)) { array_push($errors, "Levels is required"); }
+  // if (empty($department)) { array_push($errors, "department is required"); }
+  // if (empty($enrollnumber)) { array_push($errors, "Enrollnumber is required"); }
+  // if (empty($classroom)) { array_push($errors, "Classroom is required"); }
+  // if (empty($course)) { array_push($errors, "Course is required"); }
+  // if (empty($examdate)) { array_push($errors, "Examdate is required"); }
+  // if (empty($starttime)) { array_push($errors, "Start Time is required"); }
+  // if (empty($endtime)) { array_push($errors, "EndTime is required"); }
+
+
+  
+
+//   // Finally, register user if there are no errors in the form
+//   if (count($errors) == 0) {
+  
+//   	$query = "INSERT INTO seatno (levels, department, enrollnumber, classroom, subjects, examdate, starttime, endtime) 
+//   			  VALUES('$levels', $department', '$enrollnumber', '$classroom', '$course','$examdate', '$starttime', '$endtime')";
+//   	mysqli_query($db, $query);
+//   	echo "you have succefully assign seat for the sudent of " .$department;
+//   	// header('location: ../Admin/index.php');
+//   }
+// }
+
 
 
 ?>
