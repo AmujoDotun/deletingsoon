@@ -1,4 +1,7 @@
-<?php include  '../core/server.php' ?>
+<?php 
+include  ('../core/server.php'); 
+include ('../core/header.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,42 @@
     <title><?php echo $title ?></title>
 </head>
 <body>
-<table class="table table-bordered table-condensed table-striped">
+ <?php 
+$username ='dotun';
+$matric ="2019899299222";
+$levels ="ND1";
+$year ="2019";
 
+ ?>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><?php echo $username; ?></td>
+      <td><?php echo $year; ?></td>
+      <td><?php echo $matric; ?></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
