@@ -1,0 +1,2 @@
+INSERT INTO `examseatallocation`.`hall` (`id`,`hallname`,`hallcapacity`) VALUES ('1','1000Cap','1000');
+INSERT INTO `examseatallocation`.`hall` (`id`,`hallname`,`hallcapacity`) VALUES ('0','250cap','250');

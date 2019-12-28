@@ -1,0 +1,11 @@
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Biz Admin','0','','',NULL,'','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Computer Science','0','','',NULL,'','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Computer Science','0','','',NULL,'','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Computer Science','12','ND2','',NULL,'','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Computer Science','12','ND2','',NULL,'','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Biz Admin','21','ND1','COm223',NULL,'','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Biz Admin','21','ND1','COm223','2019-12-04','','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Biz Admin','21','ND1','COm223','2019-12-04','21','','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('Biz Admin','21','ND1','COm223','2019-12-04','21','31','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('egr','12','ND1','enc222','2019-12-20','1','3','',NULL);
+INSERT INTO `examseatallocation`.`trisub` (`department`,`enrollnumber`,`classroom`,`course`,`examdate`,`starttime`,`endtime`,`levels`,`seatID`) VALUES ('egr','12','ND1','hh322','2019-12-20','1','3','29',NULL);

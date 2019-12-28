@@ -1,0 +1,1 @@
+INSERT INTO `examseatallocation`.`admins` (`id`,`username`,`email`,`password`) VALUES ('0','AmujoDotun','samuelamujo@gmail.com','4bb7b1e2bdd7920c305a5c9d95894e33');

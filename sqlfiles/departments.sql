@@ -1,0 +1,1 @@
+INSERT INTO `examseatallocation`.`departments` (`id`,`department`) VALUES ('0','Computer Science');
