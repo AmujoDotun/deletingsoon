@@ -321,7 +321,46 @@ if (isset($_POST['reg_seat'])) {
   	header('location: /Admin/timetable.php');
   }
 }
+//still needs improvement but thats the logic
+function allocate($department){
+  global $db;
+  //pick department and allocate
+  $selectedStudent = "SELECT * FROM `students` WHERE department = '$department'";
+  $result = mysqli_query($db,$selectedStudent);
+  $sql="";
+  $counter = 1;
+  if(mysqli_num_rows($result) > 0){
 
+    while ($array = mysqli_fetch_array($result)) {
+    // sql query to check if student has been allocated
+    $check = "SELECT * FROM `trisub` WHERE student_id = {$array['id']}";
+    $checkresult = $db->query($check);
+      if(mysqli_num_rows($checkresult)> 0){
+       
+      }
+      else{
+        $sql.= "INSERT INTO  trisub() 
+              VALUES (NULL,{$array['id']}, '$department', $counter, NULL);";
+        $counter++;
+      }
+    }
+    if(empty($sql) ){ 
+      return $alert = "No new students to allocate";
+    }
+    $sql = substr($sql, 0, -1);
+    if ($db->multi_query($sql) === TRUE) {
+        return $alert = "New records created successfully";
+    }else {
+        return $alert = "Error: " . $sql . "<br>" . $db->error;
+    }
+  }
+  else{
+    return $alert = "No student exist in this department";
+  }
+  
+}
+//call function
+echo allocate("computer");
 
 // if (isset($_POST['reg_seat'])) {
 //   // receive all input values from the form
