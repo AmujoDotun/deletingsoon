@@ -6,7 +6,7 @@ session_start();
 $title = 'SeatAllocation System';
 
 // initializing variables
-$firstname = "";
+$names = "";
 $secondname ="";
 $middlename ="";
 $matricno ="";
@@ -113,9 +113,7 @@ if (isset($_POST['login_admin'])) {
 // REGISTER STUDENT
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
-  $firstname = mysqli_real_escape_string($db, $_POST['firstname']);
-  $secondname = mysqli_real_escape_string($db, $_POST['secondname']);
-  $middlename = mysqli_real_escape_string($db, $_POST['middlename']);
+  $names = mysqli_real_escape_string($db, $_POST['names']);
   $department = mysqli_real_escape_string($db, $_POST['department']);
   $levels = mysqli_real_escape_string($db, $_POST['levels']);
   $matricno = mysqli_real_escape_string($db, $_POST['matricno']);
@@ -126,12 +124,10 @@ if (isset($_POST['reg_user'])) {
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
-  if (empty($firstname)) { array_push($errors, "Firstname is required"); }
-  if (empty($secondname)) { array_push($errors, "Secondname is required"); }
-  if (empty($middlename)) { array_push($errors, "Middlename is required"); }
+  if (empty($names)) { array_push($errors, "Name is required"); }
   if (empty($department)) { array_push($errors, "Department is required"); }
   if (empty($levels)) { array_push($errors, "Level is required"); }
-  if (empty($department)) { array_push($errors, "Department is required"); }
+  if (empty($matricno)) { array_push($errors, "Matricno is required"); }
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
@@ -159,8 +155,8 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO students (firstname, secondname, middlename, matricno, levels, department, username, email, password) 
-  			  VALUES('$firstname','$secondname', '$middlename', '$matricno', '$department', '$levels', '$username', '$email', '$password')";
+  	$query = "INSERT INTO students (names, matricno, department, levels, username, email, password) 
+  			  VALUES('$names', '$matricno', '$department', '$levels', '$username', '$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
