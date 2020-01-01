@@ -335,7 +335,7 @@ function allocate($department){
        
       }
       else{
-        $sql.= "INSERT INTO  trisub() 
+        $sql = "INSERT INTO  trisub() 
               VALUES (NULL,{$array['id']}, '$department', $counter, NULL);";
         $counter++;
       }
@@ -355,8 +355,20 @@ function allocate($department){
   }
   
 }
+
+// $row ="";
+// $selectedDept = "SELECT * FROM `departments` WHERE department = '$department'";
+
+//   $result1 = mysqli_query($db,$selectedDept);
+//   while ($row = $result->fetch_assoc()) {
+//     echo $row['department']."<br>";
+//   }
+
 //call function
+// echo allocate("computer science", "computer engineering", "accountacy");
+
 echo allocate("computer");
+
 
 // if (isset($_POST['reg_seat'])) {
 //   // receive all input values from the form

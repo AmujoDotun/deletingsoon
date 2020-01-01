@@ -14,15 +14,25 @@ include('../core/header.php');
   </div>
 	
   <form method="post" action="schedule.php">
-  	<?php include('../core/errors.php'); ?>
+	  <?php include('../core/errors.php'); 
+	  
+	  $deptQuery = $db->query ("SELECT * FROM departments");
+	  
+	  ?>
 
     <div class="input-group">
   	  <label>Level</label>
   	  <input type="text" name="levels" value="<?php echo $levels; ?>">
   	</div>
   	<div class="input-group">
-  	  <label>Department</label>
-  	  <input type="text" name="department" value="<?php echo $department; ?>">
+  	  <label for="department">Department</label>
+		<select class="department" name="department" id="department">
+		<option value=""<?=((isset($_POST['department']) && $_POST['department'] =='')?' selected':'');?>></option>
+		<?php while($department = mysql_fetch_assoc($deptQuery)): ?>
+			<option value="<?= $department['id'];?>"<?=((isset($_POST['department']) 
+			&& $_POST['department'] == $department['id'])?' selected':''); ?>><?=$department['department'];?></option>
+		<?php endwhile; ?>
+		</select>
   	</div>
   	<div class="input-group">
   	  <label>Enrollnumber</label>
