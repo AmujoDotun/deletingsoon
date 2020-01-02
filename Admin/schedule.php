@@ -20,9 +20,22 @@ include('../core/header.php');
 	  
 	  ?>
 
-    <div class="input-group">
-  	  <label>Level</label>
-  	  <input type="text" name="levels" value="<?php echo $levels; ?>">
+<div class="input-group">
+  	  <label for="level">Level</label>
+		<select name="level" required>
+			<option value ="" disabled selected>Level</option>
+
+			<?php
+			$level_sql ="SELECT * FROM levels";
+			$sql_level = mysqli_query($db, $level_sql);
+			while($level = mysqli_fetch_array($sql_level)){
+			?>
+			<option value="<?= $level['level'] ?>"><?= $level['level']; ?></option>
+			<?php
+			}
+
+			?>
+		</select>
   	</div>
   	<div class="input-group">
   	  <label for="department">Department</label>
@@ -42,16 +55,21 @@ include('../core/header.php');
 		</select>
   	</div>
   	<div class="input-group">
-  	  <label>Enrollnumber</label>
-  	  <input type="number" name="enrollnumber" value="<?php echo $enrollnumber; ?>">
-  	</div>
-  	<div class="input-group">
-  	  <label>Classroom</label>
-  	  <input type="text" name="classroom" value="<?php echo $classroom; ?>">
-  	</div>
-  	<div class="input-group">
-  	  <label>Course</label>
-  	  <input type="text" name="course" value="<?php echo $course; ?>">
+  	  <label for="hallname"></label>
+		<select name="hallname" required>
+			<option value ="" disabled selected>Hall</option>
+
+			<?php
+			$hall_sql ="SELECT * FROM halls";
+			$sql_hall = mysqli_query($db, $hall_sql);
+			while($hall = mysqli_fetch_array($sql_hall)){
+			?>
+			<option value="<?= $hall['hallname'] ?>"><?= $hall['hallname']; ?></option>
+			<?php
+			}
+
+			?>
+		</select>
   	</div>
     <div class="input-group">
   	  <label>Exam Date</label>
@@ -59,11 +77,11 @@ include('../core/header.php');
   	</div>
     <div class="input-group">
   	  <label>start time</label>
-  	  <input type="number" name="starttime" value="<?php echo $starttime; ?>">
+  	  <input type="time" name="starttime" value="<?php echo $starttime; ?>">
   	</div>
     <div class="input-group">
   	  <label>End Time</label>
-  	  <input type="number" name="endtime" value="<?php echo $endtime; ?>">
+  	  <input type="time" name="endtime" value="<?php echo $endtime; ?>">
   	</div>
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_seat">Register</button>
