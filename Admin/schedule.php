@@ -16,7 +16,7 @@ include('../core/header.php');
   <form method="post" action="schedule.php">
 	  <?php include('../core/errors.php'); 
 	  
-	  $deptQuery = $db->query ("SELECT * FROM departments");
+	//   $deptQuery = $db->query ("SELECT * FROM departments");
 	  
 	  ?>
 
@@ -26,12 +26,19 @@ include('../core/header.php');
   	</div>
   	<div class="input-group">
   	  <label for="department">Department</label>
-		<select class="department" name="department" id="department">
-		<option value=""<?=((isset($_POST['department']) && $_POST['department'] =='')?' selected':'');?>></option>
-		<?php while($department = mysql_fetch_assoc($deptQuery)): ?>
-			<option value="<?= $department['id'];?>"<?=((isset($_POST['department']) 
-			&& $_POST['department'] == $department['id'])?' selected':''); ?>><?=$department['department'];?></option>
-		<?php endwhile; ?>
+		<select name="department" required>
+			<option value ="" disabled selected>Select Department</option>
+
+			<?php
+			$dept_sql ="SELECT DISTINCT department FROM departments";
+			$sql_exe = mysqli_query($db, $dept_sql);
+			while($dept = mysqli_fetch_array($sql_exe)){
+			?>
+			<option value="<?= $dept['department'] ?>"><?= $dept['department']; ?></option>
+			<?php
+			}
+
+			?>
 		</select>
   	</div>
   	<div class="input-group">
