@@ -26,7 +26,20 @@
   	</div>
 	  <div class="input-group">
   	  <label>Department</label>
-  	  <input type="text" name="department" value="<?php echo $department; ?>">
+  	  <select name="department" required>
+			<option value ="" disabled selected>Select Department</option>
+
+			<?php
+			$dept_sql ="SELECT DISTINCT department FROM departments";
+			$sql_exe = mysqli_query($db, $dept_sql);
+			while($dept = mysqli_fetch_array($sql_exe)){
+			?>
+			<option value="<?= $dept['department'] ?>"><?= $dept['department']; ?></option>
+			<?php
+			}
+
+			?>
+		</select>
   	</div>
 	  
 	  <div class="input-group">
