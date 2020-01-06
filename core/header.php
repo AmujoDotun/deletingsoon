@@ -13,7 +13,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Admin Dashboard</a>
+  <a class="navbar-brand" href="/">Admin Dashboard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,17 +26,8 @@
       <li class="nav-item">
         <a class="nav-link" href="department.php">Department</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="department.php">Seat Allocation</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../students/seatno.php">Seat</a>
-      </li>
       <li class="nav-item active">
         <a class="nav-link" href="../students/login.php">Add Student</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="../students/profile.php">profile</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="schedule.php">Schedule</a>

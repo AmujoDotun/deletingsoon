@@ -313,7 +313,7 @@ if (isset($_POST['reg_seat'])) {
   	mysqli_query($db, $query);
   	$_SESSION['level'] = $level;
   	$_SESSION['success'] = "You have successfully register hall";
-  	header('location: /Admin/timetable.php');
+  	header('location: /Admin/index.php');
   }
 }
 //still needs improvement but thats the logic

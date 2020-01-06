@@ -48,20 +48,6 @@ $squery = $db->query($sql);
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-
-      <div>
-
-			<?php
-			$dept_sql ="SELECT DISTINCT department FROM students";
-			$sql_exe = mysqli_query($db, $dept_sql);
-			while($dept = mysqli_fetch_array($sql_exe)){
-			?>
-			echo department;
-			<?php
-			}
-
-			?>
-      </div>
     	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
     <?php endif ?>
 </div>
@@ -77,7 +63,21 @@ $squery = $db->query($sql);
     $re=mysqli_query($conn,"SELECT * from viewcount where pagename='individualdata' ");
     while ($view=mysqli_fetch_array($re)) {
     ?>
+    <?php
+     $sql = "SELECT * FROM seatno";
+     $details = $conn->query($sql);
+
+     ?>
+     <div text-align ="center">
+     
+     </div>
+     
      <center>
+     <?php while($assign =mysqli_fetch_assoc($details)) :?>
+      <p>Hall:<?= $assign['hallname']; ?></p>
+      <p>Department:<?= $assign['department']; ?></p>
+      <p>Exam Date: <?= $assign['examdate']; ?></p>
+      <?php endwhile; ?>
       Seat No: <span class="glyphicon glyphicon-eye-open"></span><?php echo " ".$view['views'];} ?>
      </center>
     
@@ -92,7 +92,7 @@ $squery = $db->query($sql);
         $department=$row[2]; #department
         $year=$row[3]; #student year
      ?>
-    
+     
         <?php
           $sub="SELECT distinct subject from subjecttable where department='$department' AND year='$year'";
           $retvalsubject = mysqli_query( $conn,$sub);

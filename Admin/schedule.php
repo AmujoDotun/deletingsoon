@@ -77,11 +77,11 @@ include('../core/header.php');
   	</div>
     <div class="input-group">
   	  <label>start time</label>
-  	  <input type="text" name="starttime" value="<?php echo $starttime; ?>">
+  	  <input type="time" name="starttime" value="<?php echo $starttime; ?>">
   	</div>
     <div class="input-group">
   	  <label>End Time</label>
-  	  <input type="text" name="endtime" value="<?php echo $endtime; ?>">
+  	  <input type="time" name="endtime" value="<?php echo $endtime; ?>">
   	</div>
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_seat">Register</button>
