@@ -1,0 +1,1 @@
+INSERT INTO `examseatallocation`.`seatno` (`id`,`level`,`department`,`hallname`,`examdate`,`starttime`,`endtime`,`student_id`,`seat_no`) VALUES ('1','ND1 DPP','computer science','1000cap','2020-03-08','0000-00-00 00:00:00','0000-00-00 00:00:00','0','0');
