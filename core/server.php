@@ -293,8 +293,8 @@ if (isset($_POST['reg_seat'])) {
   if (empty($department)) { array_push($errors, "Department is required"); }
   if (empty($hallname)) { array_push($errors, "Hallname is required"); }
   if (empty($examdate)) { array_push($errors, "Examdate is required"); }
-  // if (empty($starttime)) { array_push($errors, "Start Time is required"); }
-  // if (empty($endtime)) { array_push($errors, "EndTime is required"); }
+  if (empty($starttime)) { array_push($errors, "Start Time is required"); }
+  if (empty($endtime)) { array_push($errors, "EndTime is required"); }
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
