@@ -315,7 +315,7 @@ if (isset($_POST['reg_seat'])) {
         VALUES('$level', '$department', '$hallname', '$examdate', '$starttime', '$endtime')";
   	mysqli_query($db, $query);
   	$_SESSION['level'] = $level;
-  	$_SESSION['success'] = "You have successfully register hall";
+  	$_SESSION['success'] = "You have successfully schedule exam seat allocation for " .$department;
   	header('location: /Admin/index.php');
   }
 }
