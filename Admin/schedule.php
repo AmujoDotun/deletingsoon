@@ -1,6 +1,7 @@
 <?php 
 include('../core/server.php');
 include('../core/header.php');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -76,16 +77,17 @@ include('../core/header.php');
   	  <input type="date" name="examdate" value="<?php echo $examdate; ?>">
   	</div>
     <div class="input-group">
-  	  <label>start time</label>
-  	  <input type="time" name="starttime" value="<?php echo $starttime; ?>">
+  	  <label id="appt-time">start time</label>
+  	  <input type="time" id="appt-time" name="starttime" value="<?= $starttime ?>">
   	</div>
     <div class="input-group">
-  	  <label>End Time</label>
-  	  <input type="time" name="endtime" value="<?php echo $endtime; ?>">
+  	  <label id="end-time">End Time</label>
+  	  <input type="time" id='end-time' name="endtime" value="<?php echo $endtime; ?>">
   	</div>
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_seat">Register</button>
   	</div>
   </form>
+ 
 </body>
 </html>
