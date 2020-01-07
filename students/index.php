@@ -54,7 +54,7 @@ $squery = $db->query($sql);
 
 
 <?php
-     $server='localhost';
+     $server='localhost:3308';
      $dbuser='root';
      $dbpass='';
      $db='examseatallocation';
