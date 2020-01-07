@@ -309,9 +309,9 @@ if (isset($_POST['reg_seat'])) {
   $closestRange  = closestRangeOfHallCapacity($studentsCount);
 
   if(getHallCapacity($hallname) < $studentsCount ){
-    array_push($errors, "The selected hall can't contain the students available in the selected department ");
+    array_push($errors, "The selected hall can't contain the students available in the selected " .$department ." department");
   }elseif($closestRange !== getHallCapacity($hallname)) {
-    array_push($errors, "The selected hall is too large for the students on the selected department, try hall $closestRange".'cap');
+    array_push($errors, "The selected hall is too large for the students of " .$department." try hall $closestRange".'cap');
   }
 
 
@@ -326,10 +326,6 @@ if (isset($_POST['reg_seat'])) {
         VALUES('$level', '$department', '$hallname', '$examdate', '$starttime', '$endtime')";
   	mysqli_query($db, $query);
   	$_SESSION['level'] = $level;
-<<<<<<< HEAD
-  	$_SESSION['success'] = "You have successfully schedule exam seat allocation for " .$department;
-  	header('location: /Admin/index.php');
-=======
   	$_SESSION['success'] = "You have successfully register hall";
     header('location: /Admin/index.php');
 
@@ -373,7 +369,6 @@ function getAllHallCapacity() {
 
   if(mysqli_num_rows($query)>0) {
     return $query;
->>>>>>> b813cd3f447bf290c67fa00f5dfe743442eba44b
   }
 
 }
