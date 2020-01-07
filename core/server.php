@@ -185,7 +185,9 @@ if (isset($_POST['login_user'])) {
   	$query = "SELECT * FROM students WHERE username='$username' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
-  	  $_SESSION['username'] = $username;
+      $data = mysqli_fetch_assoc($results);
+      $_SESSION['username'] = $username;
+      $_SESSION['student_id'] = $data['id'];
   	  $_SESSION['success'] = "You are now logged in";
   	  header('location: index.php');
   	}else {
@@ -318,20 +320,39 @@ if (isset($_POST['reg_seat'])) {
   // Finally, register hall if there are no errors in the form
   if (count($errors) == 0) {
 
+    $students = getStudents($department);
 
-  	$query = "INSERT INTO seatno (level, department, hallname, examdate, starttime, endtime) 
-        VALUES('$level', '$department', '$hallname', '$examdate', '$starttime', '$endtime')";
+    $seatNum = 0;
+
+    while($student = mysqli_fetch_assoc($students)) {
+      $seatNum++;
+      $student_id =$student['id'];
+
+    $query = "INSERT INTO seatno (`level`, department, hallname, examdate, starttime, endtime,student_id, seat_no) 
+        VALUES('$level', '$department', '$hallname', '$examdate', '$starttime', '$endtime', '$student_id', '$seatNum')";
   	mysqli_query($db, $query);
   	$_SESSION['level'] = $level;
   	$_SESSION['success'] = "You have successfully register hall";
+
+    }
+
     header('location: /Admin/index.php');
 
-    
-    
   }
 }
 
 
+
+function getStudents($department) {
+
+  global $db;
+  $query = mysqli_query($db, "SELECT id FROM students WHERE department ='$department'  ");
+
+  if(mysqli_num_rows($query)>0) {
+    return $query;
+  }
+
+}
 
 
 
@@ -372,16 +393,16 @@ function getAllHallCapacity() {
 
 
 function closestRangeOfHallCapacity($studentsCount) {
-  //  variable to store difference Between StudentCount And HallCapacity = empty array 
-  $diff = [];
+
+  $capacity = [];
   $hallCapacityQuery = getAllHallCapacity();
     while( $data = mysqli_fetch_assoc($hallCapacityQuery) ) {
         if($studentsCount < $data['hallcapacity']) {
-          $diff[] = $data['hallcapacity'];
+          $capacity[] = $data['hallcapacity'];
         }
     }
 
-   return min($diff);
+   return min($capacity);
 }
 
 

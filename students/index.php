@@ -52,35 +52,29 @@ $squery = $db->query($sql);
     <?php endif ?>
 </div>
 
-
 <?php
      $server='localhost';
      $dbuser='root';
      $dbpass='';
      $db='examseatallocation';
-    $conn=mysqli_connect($server,$dbuser,$dbpass,$db);//database connection
-    mysqli_query($conn,"UPDATE viewcount set views=views+1 where pagename='individualdata'");
-    $re=mysqli_query($conn,"SELECT * from viewcount where pagename='individualdata' ");
-    while ($view=mysqli_fetch_array($re)) {
-    ?>
-    <?php
-     $sql = "SELECT * FROM seatno";
-     $details = $conn->query($sql);
 
-     ?>
+     $conn=mysqli_connect($server,$dbuser,$dbpass,$db);//database connection
+     $student_id = isset($_SESSION['student_id'])? $_SESSION['student_id']:'';
+     $sql        = "SELECT * FROM seatno WHERE student_id='$student_id' LIMIT 1";
+     $query      = $conn->query($sql);
+     $seatNum    = mysqli_fetch_assoc($query);
+    
+    ?>
+    
      <div text-align ="center">
      
      </div>
-     
      <center>
-     <?php while($assign =mysqli_fetch_assoc($details)) :?>
-      <p>Hall:<?= $assign['hallname']; ?></p>
-      <p>Department:<?= $assign['department']; ?></p>
-      <p>Exam Date: <?= $assign['examdate']; ?></p>
-      <?php endwhile; ?>
-      Seat No: <span class="glyphicon glyphicon-eye-open"></span><?php echo " ".$view['views'];} ?>
+      <p>Hall:<?= $seatNum['hallname']; ?></p>
+      <p>Department:<?= $seatNum['department']; ?></p>
+      <p>Exam Date: <?= $seatNum['examdate']; ?></p>
+      Seat No: <span class="glyphicon glyphicon-eye-open"><?= $seatNum['seat_no'] ?></span>
      </center>
-    
 
     <?php  if(isset($_POST["submit"])){
     $roll=$_POST["rollno"];
