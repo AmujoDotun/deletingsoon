@@ -11,7 +11,7 @@ function allocate($hall) {
     if($student<=20 && $dept=="computer"){
 
     }
-    echo $hall;
+    echo "$hall";
 }
 
 allocate($hall);

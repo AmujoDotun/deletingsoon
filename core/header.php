@@ -32,6 +32,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="schedule.php">Schedule</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="../students/contacts.php">Contact Us</a>
+      </li>
      
     </ul>
   </div>

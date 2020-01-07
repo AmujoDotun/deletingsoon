@@ -1,1 +1,3 @@
-INSERT INTO `examseatallocation`.`admins` (`id`,`username`,`email`,`password`) VALUES ('0','AmujoDotun','samuelamujo@gmail.com','4bb7b1e2bdd7920c305a5c9d95894e33');
+INSERT INTO `examseatallocation`.`admins` (`id`,`username`,`email`,`password`) VALUES ('0','Fele','Fele@gmail.com','55af4109cda448ea71ed5fb2fefae36a');
+INSERT INTO `examseatallocation`.`admins` (`id`,`username`,`email`,`password`) VALUES ('0','AmujoDotun','samuelamujo@gmail.com','b7c7d1df4098d7374a097ba3fbee8859');
+INSERT INTO `examseatallocation`.`admins` (`id`,`username`,`email`,`password`) VALUES ('0','daniel','james@gmail.com','b4cc344d25a2efe540adbf2678e2304c');

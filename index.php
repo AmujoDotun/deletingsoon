@@ -28,6 +28,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="students/login.php">Student<span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="students/contacts.php">Contact Us<span class="sr-only">(current)</span></a>
+      </li>
      
     </ul>
     <form class="form-inline my-2 my-lg-0">
