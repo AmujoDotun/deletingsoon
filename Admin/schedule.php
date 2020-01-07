@@ -2,7 +2,6 @@
 include('../core/server.php');
 include('../core/header.php');
 
-print_r($_POST);
 ?>
 <!DOCTYPE html>
 <html>
