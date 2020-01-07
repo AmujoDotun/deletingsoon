@@ -302,20 +302,91 @@ if (isset($_POST['reg_seat'])) {
   // $user_check_query = "SELECT * FROM trisub WHERE level='$level' OR department='$department' LIMIT 1";
   // $result = mysqli_query($db, $user_check_query);
   // $user = mysqli_fetch_assoc($result);
+  $studentsCount = countDbEntries('students', " WHERE department='$department' ");
+  $closestRange  = closestRangeOfHallCapacity($studentsCount);
+
+  if(getHallCapacity($hallname) < $studentsCount ){
+    array_push($errors, "The selected hall can't contain the students available in the selected department ");
+  }elseif($closestRange !== getHallCapacity($hallname)) {
+    array_push($errors, "The selected hall is too large for the students on the selected department, try hall $closestRange".'cap');
+  }
+
+
   
   
 
   // Finally, register hall if there are no errors in the form
   if (count($errors) == 0) {
 
+
   	$query = "INSERT INTO seatno (level, department, hallname, examdate, starttime, endtime) 
         VALUES('$level', '$department', '$hallname', '$examdate', '$starttime', '$endtime')";
   	mysqli_query($db, $query);
   	$_SESSION['level'] = $level;
   	$_SESSION['success'] = "You have successfully register hall";
-  	header('location: /Admin/index.php');
+    header('location: /Admin/index.php');
+
+    
+    
   }
 }
+
+
+
+
+
+function countDbEntries($table, $clause="") {
+  global $db;
+  $query = mysqli_query($db, "SELECT COUNT(*) AS total FROM ".$table." ".$clause."  ");
+  if(mysqli_num_rows($query)>0) {
+
+    $count = mysqli_fetch_assoc($query);
+
+    return $count['total'];
+
+  }
+}
+
+
+function getHallCapacity($hallname) {
+  global $db;
+  $query = mysqli_query($db, "SELECT hallcapacity FROM halls WHERE hallname='$hallname' LIMIT 1");
+
+  if(mysqli_num_rows($query)>0) {
+    $data = mysqli_fetch_assoc($query);
+    return $data['hallcapacity'];
+  }
+
+}
+
+
+function getAllHallCapacity() {
+  global $db;
+  $query = mysqli_query($db, "SELECT hallcapacity FROM halls ");
+
+  if(mysqli_num_rows($query)>0) {
+    return $query;
+  }
+
+}
+
+
+function closestRangeOfHallCapacity($studentsCount) {
+  //  variable to store difference Between StudentCount And HallCapacity = empty array 
+  $diff = [];
+  $hallCapacityQuery = getAllHallCapacity();
+    while( $data = mysqli_fetch_assoc($hallCapacityQuery) ) {
+        if($studentsCount < $data['hallcapacity']) {
+          $diff[] = $data['hallcapacity'];
+        }
+    }
+
+   return min($diff);
+}
+
+
+
+
 //still needs improvement but thats the logic
 function allocate($department){
   global $db;
