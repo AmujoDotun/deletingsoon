@@ -11,7 +11,7 @@ include('../core/header.php');
 </head>
 <body>
   <div class="header">
-  	<h2>Register</h2>
+  	<h2>Hall Register</h2>
   </div>
 	
   <form method="post" action="hall.php">

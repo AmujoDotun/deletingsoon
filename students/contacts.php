@@ -26,7 +26,7 @@ include('../core/header.php');
   <div class="card-body">
     <h5 class="card-title">You have Complain???</h5>
     <p class="card-text">Do you have any complain with your exam seat allocation?</p>
-    <a  href="mailto:samuelamujo@gmail.com" class="btn btn-primary">Send a Message</a>
+    <a  href="mailto:samuelamujo@gmail.com" class="btn btn-primary">samuelamujo@gmail.com</a>
   </div>
   <div class="card-footer text-muted">
     

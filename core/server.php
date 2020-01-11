@@ -69,10 +69,11 @@ if (isset($_POST['reg_admin'])) {
 
   	$query = "INSERT INTO admins (username, email, password) 
   			  VALUES('$username', '$email', '$password')";
-  	mysqli_query($db, $query);
-  	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: ../Admin/index.php');
+    mysqli_query($db, $query);
+    
+  	// $_SESSION['username'] = $username;
+  	// $_SESSION['success'] = "You are now logged in";
+  	header('location: ../Admin/adminLogin.php');
   }
 }
 

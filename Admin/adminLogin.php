@@ -10,7 +10,7 @@ include('../core/server.php');
 </head>
 <body>
   <div class="header">
-  	<h2>Login</h2>
+  	<h2>Admin Login</h2>
   </div>
 	 
   <form method="post" action="adminLogin.php">
